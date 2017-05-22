@@ -30,6 +30,10 @@ public class Car implements Vehicle {
         this.fuelType = fuelType;
         this.fuelTankSize = fuelTankSize;
         this.gears = gears;
+
+
+
+
         this.factoryAvgConsumptionPer100km = avgConsumption;
     }
 
