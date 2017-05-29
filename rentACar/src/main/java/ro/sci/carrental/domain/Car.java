@@ -16,6 +16,9 @@ import  ro.sci.carrental.util.VehicleCategory;
         private int doors;
         private int power;
         private boolean ac = false;
+
+
+
         private boolean gps = false;
         private boolean gearbox = false; //TRUE automatic, FALSE manual
         private FuelType fuelType;
