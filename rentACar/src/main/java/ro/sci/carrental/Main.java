@@ -29,6 +29,8 @@ public class Main {
 
         //introducerea masinilor in DB
         carRepository.add(mercedes);
+
+
         carRepository.add(bmw);
         carRepository.add(ferrrari);
 
