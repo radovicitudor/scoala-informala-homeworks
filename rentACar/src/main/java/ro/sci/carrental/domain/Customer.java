@@ -13,6 +13,8 @@ public class Customer {
     private String lastName;
     private String telephone;
     private String email;
+    private Date dateOfBirth;
+    private Date dateOfDriversLicense;
     private CustomerAddress customerAddress;
     private PaymentMethod paymentMethod;
 
