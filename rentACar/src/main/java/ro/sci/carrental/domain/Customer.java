@@ -13,16 +13,11 @@ public class Customer {
     private String lastName;
     private String telephone;
     private String email;
-    private Date dateOfBirth;
-    private Date dateOfDriversLicense;
+    //dates  NOK
+    private String dateOfBirth;
+    private String dateOfDriversLicense;
     private CustomerAddress customerAddress;
     private PaymentMethod paymentMethod;
-
-    /**
-     * Default Constructor
-     */
-    public Customer() {
-    }
 
     /**
      * Constructor for all fields
@@ -35,11 +30,13 @@ public class Customer {
      * @param customerAddress Customer address
      * @param paymentMethod   Payment method
      */
-    public Customer(int id, String firstName, String lastName, String telephone, String email, CustomerAddress customerAddress, PaymentMethod paymentMethod) {
+    public Customer(int id, String firstName, String lastName, String telephone, String dateOfDriversLicense, String dateOfBirth, String email, CustomerAddress customerAddress, PaymentMethod paymentMethod) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;
+        this.dateOfDriversLicense = dateOfDriversLicense;
+        this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.customerAddress = customerAddress;
         this.paymentMethod = paymentMethod;

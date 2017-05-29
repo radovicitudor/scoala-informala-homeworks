@@ -35,13 +35,13 @@ public class Main {
         carRepository.add(ferrrari);
 
         //creare clienti
-        CustomerAddress customer1Address = new CustomerAddress("Str. Carpati Nr.1", "Cluj-Napoca", "Cluj", "Romania", "400270");
-        CustomerAddress customer2Address = new CustomerAddress("Str. Bicegi Nr.1", "Oradea", "Bihor", "Romania", "400170");
-        CustomerAddress customer3Address = new CustomerAddress("Str. Cucului Nr.1", "Zalau", "Salaj", "Romania", "400370");
+        CustomerAddress customer1Address = new CustomerAddress("Tudor Vladimirescu 170C/40", "Targu-Mures", "Mures", "Romania", "536436");
+        CustomerAddress customer2Address = new CustomerAddress("Tudor Vladimirescu 170C/40", "Targu-Mures", "Mures", "Romania", "536436");
+        CustomerAddress customer3Address = new CustomerAddress("Soporului 8", "Cluj-Napoca", "Cluj", "Romania", "400400");
 
-        Customer customer1 = new Customer(1, "Dorel", "Cretu", "0727889900", "dorel@cretu.ro", customer1Address, PaymentMethod.CREDITCARD);
-        Customer customer2 = new Customer(2, "Ionel", "Balanel", "0727770000", "ionel@balanel.ro", customer2Address, PaymentMethod.CASH);
-        Customer customer3 = new Customer(3, "Vasile", "Blaga", "0727123456", "vasile@blaga.ro", customer3Address, PaymentMethod.PAYPAL);
+        Customer customer1 = new Customer(1,"Radovici","Tudor","0740300364", "28-05-2012", "22-02-1994","radovicitudor@gmail.com",customer1Address, PaymentMethod.CASH);
+        Customer customer2 = new Customer(2,"Radovici","Cristian","0744567015", "01-01-2000", "15-08-1967","radovicicristian@gmail.com",customer2Address, PaymentMethod.CASH);
+        Customer customer3 = new Customer(3,"Radovici","Crenguta","0744567018", "01-01-2000", "01-08-1967","radovicicrenguta@gmail.com",customer3Address, PaymentMethod.CASH);
 
         CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
 
