@@ -1,7 +1,10 @@
 package ro.sci.carrental.domain;
 
 import ro.sci.carrental.util.PaymentMethod;
+import sun.java2d.pipe.SpanShapeRenderer;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -13,16 +16,19 @@ public class Customer {
     private String lastName;
     private String telephone;
     private String email;
+
+
     //dates  NOK
-    private String dateOfBirth;
-    private String dateOfDriversLicense;
+
+    private SimpleDateFormat dateOfBirth;
+    private SimpleDateFormat dateOfDriversLicense;
+
     private CustomerAddress customerAddress;
     private PaymentMethod paymentMethod;
 
     /**
      * Constructor for all fields
-     *
-     * @param id              id
+     *  @param id              id
      * @param firstName       First Name
      * @param lastName        Last Name
      * @param telephone       Telephone No.
@@ -30,7 +36,7 @@ public class Customer {
      * @param customerAddress Customer address
      * @param paymentMethod   Payment method
      */
-    public Customer(int id, String firstName, String lastName, String telephone, String dateOfDriversLicense, String dateOfBirth, String email, CustomerAddress customerAddress, PaymentMethod paymentMethod) {
+    public Customer(int id, String firstName, String lastName, String telephone, SimpleDateFormat dateOfDriversLicense, SimpleDateFormat dateOfBirth, String email, CustomerAddress customerAddress, PaymentMethod paymentMethod) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -84,6 +90,10 @@ public class Customer {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
+    public SimpleDateFormat getDateOfBirth(){return dateOfBirth;}
+
+    public SimpleDateFormat getDateOfDriversLicense(){return dateOfDriversLicense;}
 
     public String getEmail() {
         return email;
