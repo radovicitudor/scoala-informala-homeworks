@@ -15,7 +15,7 @@ public class SimulateCustomer {
         System.out.println ("List of Customers in Repository");
 
         for (Customer customer : customerRepository.getAll ()) {
-            System.out.println (customer.getFirstName () +" "+ customer.getLastName ());
+            System.out.println (customer.getFirstName () +" "+  customer.getLastName ());
         }
 
         System.out.println ("End of Customer Repository");
