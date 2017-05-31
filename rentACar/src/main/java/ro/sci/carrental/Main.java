@@ -32,9 +32,9 @@ public class Main {
         carRepository.add(ferrrari);
 
         //creare clienti
-        CustomerAddress customer1Address = new CustomerAddress("Tudor Vladimirescu 170C/40", "Targu-Mures", "Mures", "Romania", "536436");
-        CustomerAddress customer2Address = new CustomerAddress("Tudor Vladimirescu 170C/40", "Targu-Mures", "Mures", "Romania", "536436");
-        CustomerAddress customer3Address = new CustomerAddress("Soporului 8", "Cluj-Napoca", "Cluj", "Romania", "400400");
+        CustomerAddress customer1Address = new CustomerAddress("Tudor Vladimirescu 170C/40", "Targu-Mures", "Mures", "Romania", 536436);
+        CustomerAddress customer2Address = new CustomerAddress("Tudor Vladimirescu 170C/40", "Targu-Mures", "Mures", "Romania", 536436);
+        CustomerAddress customer3Address = new CustomerAddress("Soporului 8", "Cluj-Napoca", "Cluj", "Romania", 400400);
 
         Customer customer1 = new Customer(1,"Radovici","Tudor","0740300364", new SimpleDateFormat ("1994-02-22"), new SimpleDateFormat ("1994-02-22"),"radovicitudor@gmail.com",customer1Address, PaymentMethod.CASH);
         Customer customer2 = new Customer(2,"Radovici","Cristian","0744567015", new SimpleDateFormat ("2000-01-01"), new SimpleDateFormat ("1967-08-01"), "radovicicristian@gmail.com",customer2Address, PaymentMethod.CREDITCARD);
@@ -43,15 +43,17 @@ public class Main {
         CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
 
         //introducem clienti in BD
+
         customerRepository.add(customer1);
-        //customerRepository.add(customer2);
-        //customerRepository.add(customer3);
+        customerRepository.add(customer2);
+        customerRepository.add(customer3);
 
         //Cautare in DB masini
-        SimulateCars simulateCars = new SimulateCars();
-        simulateCars.searches(carRepository);
+        //SimulateCars simulateCars = new SimulateCars();
+        //simulateCars.searches(carRepository);
 
         //Cautare in DB clienti
+
         SimulateCustomer simulateCustomer = new SimulateCustomer();
         simulateCustomer.searches(customerRepository);
     }

@@ -8,7 +8,7 @@ public class CustomerAddress {
     private String city;
     private String county;
     private String country;
-    private String postalCode;
+    private int postalCode;
 
     /**
      * Default Constructor
@@ -25,7 +25,7 @@ public class CustomerAddress {
      * @param country       Country
      * @param postalCode    Postal Code
      */
-    public CustomerAddress(String streetAddress, String city, String county, String country, String postalCode) {
+    public CustomerAddress(String streetAddress, String city, String county, String country, int postalCode) {
         this.streetAddress = streetAddress;
         this.city = city;
         this.county = county;
@@ -65,9 +65,9 @@ public class CustomerAddress {
         this.country = country;
     }
 
-    public String getPostalCode() {
+    public int getPostalCode() {
         return postalCode;
     }
 
-    public void setPostalCode(String postalCode) {this.postalCode = postalCode;}
+    public void setPostalCode(int postalCode) {this.postalCode = postalCode;}
 }
