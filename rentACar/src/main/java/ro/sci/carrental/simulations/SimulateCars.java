@@ -1,6 +1,5 @@
 package ro.sci.carrental.simulations;
 
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import ro.sci.carrental.domain.Car;
 import ro.sci.carrental.repository.CarRepositoryImpl;
 import ro.sci.carrental.repository.CustomerRepositoryImpl;
@@ -33,7 +32,7 @@ public class SimulateCars {
             System.out.println(car.getMake()+" "+car.getModel());
         }
 
-        System.out.println("End of cars by"+ search1+" make");
+        System.out.println("End of cars by make");
 
         //search by make and model
 
@@ -45,7 +44,7 @@ public class SimulateCars {
             System.out.println(car.getMake()+" "+car.getModel());
         }
 
-        System.out.println("End of cars by make and model:"+search2);
+        System.out.println("End of cars by make and model:");
 
 
     }
