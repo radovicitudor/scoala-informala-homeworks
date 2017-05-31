@@ -51,6 +51,7 @@ public class Main {
 
         //Cautare in DB masini
         SimulateCars simulateCars = new SimulateCars();
+
         simulateCars.searches(carRepository);
 
         //Cautare in DB clienti
