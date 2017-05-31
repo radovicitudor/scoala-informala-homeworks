@@ -15,27 +15,19 @@ public class SimulateCustomer {
         System.out.println ("List of Customers in Repository");
 
         for (Customer customer : customerRepository.getAll ()) {
-            System.out.println (customer.getFirstName () + customer.getLastName ());
+            System.out.println (customer.getFirstName () +" "+ customer.getLastName ());
         }
 
         System.out.println ("End of Customer Repository");
-    }
 
-    CustomerServiceImpl search1 =new CustomerServiceImpl (customerRepository);
-    List<Customer> foundCustomersByFirstName = search1.findCustomersByFirstName ("Tudor");
 
-    for(Customer customer: foundCustomersByFirstName){
+        CustomerServiceImpl search1 = new CustomerServiceImpl (customerRepository);
+        List<Customer> foundCustomersByFirstName = search1.findCustomersByFirstName ("Radovici");
 
+        for (Customer customer : foundCustomersByFirstName) {
+            System.out.println (customer.getFirstName () +" "+ customer.getLastName () +" "+ customer.getEmail () +" "+ customer.getTelephone ());
+        }
+
+        System.out.println ("end of customers with name Tudor");
     }
 }
-
-/**
- CarServiceImpl search2 = new CarServiceImpl(carRepository);
- List<Car> foundCarsByMakeAndModel = search2.findCarsByMakeAndModel("Ferrari", "458");
-
- System.out.println("Search by make and model returns:");
- for(Car car : foundCarsByMakeAndModel){
- System.out.println(car.getMake()+" "+car.getModel());
- }
-
- System.out.println("End of cars by make and model:");*/

@@ -49,8 +49,8 @@ public class Main {
         customerRepository.add(customer3);
 
         //Cautare in DB masini
-        //SimulateCars simulateCars = new SimulateCars();
-        //simulateCars.searches(carRepository);
+        SimulateCars simulateCars = new SimulateCars();
+        simulateCars.searches(carRepository);
 
         //Cautare in DB clienti
 
