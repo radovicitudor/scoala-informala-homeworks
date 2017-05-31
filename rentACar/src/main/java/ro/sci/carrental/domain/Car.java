@@ -15,10 +15,10 @@ import  ro.sci.carrental.util.VehicleCategory;
         private int seats;
         private int doors;
         private int power;
+        private int minAgeRequired;
+        private int maxMilagePerRent;
+        private boolean milageLimit;
         private boolean ac = false;
-
-
-
         private boolean gps = false;
         private boolean gearbox = false; //TRUE automatic, FALSE manual
         private FuelType fuelType;
@@ -29,21 +29,22 @@ import  ro.sci.carrental.util.VehicleCategory;
          */
         public Car() {}
 
-        /**
-         * Constructor for all fields
-         * @param make car make
-         * @param model car model
-         * @param size car size
-         * @param color car color
-         * @param seats no. of seats
-         * @param doors no. of doors
-         * @param ac a/c
-         * @param gps car gps
-         * @param gearbox gearbox type
-         * @param fuelType fuel type
-         * @param vehicleCategory vehicle category
-         */
-        public Car(String make, String model, float size, String color, int seats, int doors, boolean ac, boolean gps, boolean gearbox, int power, FuelType fuelType, VehicleCategory vehicleCategory) {
+    /**
+     *
+     * @param make
+     * @param model
+     * @param size
+     * @param color
+     * @param seats
+     * @param doors
+     * @param ac
+     * @param gps
+     * @param gearbox
+     * @param power
+     * @param fuelType
+     * @param vehicleCategory
+     */
+        public Car(String make, String model, float size, String color, int seats, int doors,int power, int minAgeRequired, int maxMilagePerRent, boolean milageLimit, boolean ac, boolean gps, boolean gearbox, FuelType fuelType, VehicleCategory vehicleCategory) {
             this.make = make;
             this.model = model;
             this.size = size;
@@ -51,6 +52,9 @@ import  ro.sci.carrental.util.VehicleCategory;
             this.seats = seats;
             this.doors = doors;
             this.power = power;
+            this.minAgeRequired= minAgeRequired;
+            this.minAgeRequired=minAgeRequired;
+            this.milageLimit=milageLimit;
             this.ac = ac;
             this.gps = gps;
             this.gearbox = gearbox;
