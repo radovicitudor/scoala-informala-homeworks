@@ -1,15 +1,18 @@
 package ro.sci.carrental.repository;
 
 import ro.sci.carrental.domain.Car;
-
-import ro.sci.carrental.domain.Car;
 import ro.sci.carrental.util.FuelType;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  * Implementation of CarRepository.
  *
+ * @author Flaviu Lupoian
+ * @version 1.0
+ * @since 1.8
  */
 public class CarRepositoryImpl implements CarRepository {
 
@@ -20,7 +23,9 @@ public class CarRepositoryImpl implements CarRepository {
         return cars;
     }
 
-    public List<Car> getCarsByMake(String make) { return null; }
+    public List<Car> getCarsByMake(String make) {
+        return null;
+    }
 
     public List<Car> getCarsByFuelType(FuelType fuelType) {
         return null;
@@ -31,10 +36,17 @@ public class CarRepositoryImpl implements CarRepository {
     }
 
     public void delete(Car car) {
-        cars.remove(car);
+        //this.cars.removeIf(aCar -> aCar.equals(car));
+
+        Iterator<Car> iterator = cars.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equals(car)) {
+                iterator.remove();
+            }
+        }
     }
 
     public void update(Car car) {
-        cars.set(cars.indexOf(car), car);
+        System.out.println("am facut update la:" + car);
     }
 }
