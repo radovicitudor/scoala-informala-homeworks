@@ -56,4 +56,24 @@ public interface CarRepository {
      * @param car
      */
     void update(Car car);
+
+    /**
+     * Adds al cars
+     * @param cars
+     */
+    void addAll(Car cars);
+
+    /**
+     * find cars by meke
+     *
+     * @param Make
+     */
+    List <Car> findCarsByMake (String Make);
+
+    /**
+     * update certain elements of the car.
+     */
+    void update();
+
+
 }

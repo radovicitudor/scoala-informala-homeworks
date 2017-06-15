@@ -19,6 +19,10 @@ public class CarServiceImpl implements CarService {
         this.carRepository = carRepository;
     }
 
+    public CarServiceImpl() {
+
+    }
+
     /**
      * Public method findCarsByMake searches cars by make.
      *
@@ -77,6 +81,18 @@ public class CarServiceImpl implements CarService {
         }
 
         return foundCars;
+    }
+
+    public void add(Car car) {
+
+    }
+
+    public List<Car> getAll() {
+        return null;
+    }
+
+    public void delete(Car car) {
+
     }
 
     public CarRepositoryImpl getCarRepository() {

@@ -49,4 +49,19 @@ public class CarRepositoryImpl implements CarRepository {
     public void update(Car car) {
         System.out.println("am facut update la:" + car);
     }
+
+    @Override
+    public void addAll(Car cars) {
+
+    }
+
+    @Override
+    public List<Car> findCarsByMake(String Make) {
+        return null;
+    }
+
+    @Override
+    public void update() {
+
+    }
 }

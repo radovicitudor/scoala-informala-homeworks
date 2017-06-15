@@ -31,4 +31,23 @@ public interface CarService {
      * @return List<Car>
      */
     List<Car> findCarsByMakeModelColorAndSeats(String make, String model, String color, int seats);
+
+    /**
+     * Adds a car
+     * @param car
+     */
+    void add(Car car);
+
+    /**
+     * returns a list of all cars
+     * @return
+     */
+    List<Car> getAll();
+
+    /**
+     * Deletes a car
+     *
+     * @param car
+     */
+    void delete(Car car);
 }
