@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by tudorradovici on 29/05/17.
  */
 public class Customer {
-    private int id;
+    private int customerId;
     private String firstName;
     private String lastName;
     private String telephone;
@@ -28,7 +28,7 @@ public class Customer {
 
     /**
      * Constructor for all fields
-     *  @param id              id
+     *  @param customerId              id
      * @param firstName       First Name
      * @param lastName        Last Name
      * @param telephone       Telephone No.
@@ -36,8 +36,8 @@ public class Customer {
      * @param customerAddress Customer address
      * @param paymentMethod   Payment method
      */
-    public Customer(int id, String firstName, String lastName, String telephone, SimpleDateFormat dateOfDriversLicense, SimpleDateFormat dateOfBirth, String email, CustomerAddress customerAddress, PaymentMethod paymentMethod) {
-        this.id = id;
+    public Customer(int customerId, String firstName, String lastName, String telephone, SimpleDateFormat dateOfDriversLicense, SimpleDateFormat dateOfBirth, String email, CustomerAddress customerAddress, PaymentMethod paymentMethod) {
+        this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;
@@ -75,12 +75,12 @@ public class Customer {
         this.customerAddress = customerAddress;
     }
 
-    public int getId() {
-        return id;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCustomerId(int id) {
+        this.customerId = customerId;
     }
 
     public String getTelephone() {
