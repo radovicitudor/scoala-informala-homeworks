@@ -19,6 +19,5 @@ public class Transaction {
         this.customerId=customerId;
         this.customerAddress=customerAddress;
 
-
     }
 }
