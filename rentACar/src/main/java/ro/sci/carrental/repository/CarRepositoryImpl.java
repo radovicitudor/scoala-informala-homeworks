@@ -1,9 +1,7 @@
 package ro.sci.carrental.repository;
 
-import ro.sci.carrental.domain.Car;
+import ro.sci.carrental.domain.car.Car;
 
-import ro.sci.carrental.domain.Car;
-import ro.sci.carrental.util.FuelType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,28 +11,52 @@ import java.util.List;
  */
 public class CarRepositoryImpl implements CarRepository {
 
-    private List<Car> cars = new ArrayList<Car>();
+    private List<Car> cars = new ArrayList<>();
 
 
     public List<Car> getAll() {
         return cars;
     }
 
-    public List<Car> getCarsByMake(String make) { return null; }
+    @Override
+    public <T, V> List<T> getCarsByFuelType(V fuelType) {
+        List<T> seachedCars = new ArrayList<>();
 
-    public List<Car> getCarsByFuelType(FuelType fuelType) {
-        return null;
+        for (ro.sci.carrental.domain.car.Car car: cars) {
+            if (cars.contains(fuelType)) {
+                seachedCars.add((T) car);
+            }
+
+        }
+
+        return seachedCars;
     }
 
-    public void add(Car car) {
-        cars.add(car);
+    public <T extends Car, V> List<T> getCarsByMake(V make) {
+        List<T> seachedCars = new ArrayList<>();
+
+        for (ro.sci.carrental.domain.car.Car car: cars) {
+            if (cars.contains(car.getMake())) {
+                seachedCars.add((T) car);
+            }
+
+        }
+
+        return seachedCars;
     }
 
-    public void delete(Car car) {
-        cars.remove(car);
+
+    public <T> void add(T car) {
+        cars.add((Car) car);
     }
 
-    public void update(Car car) {
-        cars.set(cars.indexOf(car), car);
+    public <T> void addAll(List<T> cars) {
+        cars.addAll(cars);
+    }
+
+    public <T> void delete(T car) {cars.removeIf(anotherCar -> anotherCar.equals(car));}
+
+    public <T> void update(T car) {
+        cars.set(cars.indexOf(car), (Car) car);
     }
 }

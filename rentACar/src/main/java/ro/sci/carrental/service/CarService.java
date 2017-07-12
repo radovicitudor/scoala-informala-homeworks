@@ -1,16 +1,16 @@
 package ro.sci.carrental.service;
 
-import ro.sci.carrental.domain.Car;
+import ro.sci.carrental.domain.car.Car;
 import java.util.List;
 
 /**
- * Service Interface for Car.
+ * Service Interface for car.
  */
 public interface CarService {
     /**
      * Find same make cars in system.
-     * @param make Car make
-     * @return List<Car>
+     * @param make car make
+     * @return List<car>
      */
     List<Car> findCarsByMake(String make);
 
@@ -18,7 +18,7 @@ public interface CarService {
      * Find same make and model cars in system.
      * @param make
      * @param model
-     * @return List<Car>
+     * @return List<car>
      */
     List<Car> findCarsByMakeAndModel(String make, String model);
 
@@ -28,7 +28,7 @@ public interface CarService {
      * @param model
      * @param color
      * @param seats
-     * @return List<Car>
+     * @return List<car>
      */
     List<Car> findCarsByMakeModelColorAndSeats(String make, String model, String color, int seats);
 }
