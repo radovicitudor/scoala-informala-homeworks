@@ -44,6 +44,7 @@ public class Main {
         customer1.setId (1);
 
         CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl ();
+
         customerRepository.add (customer1);
 
         SimulateCars simulateCars = new SimulateCars ();
