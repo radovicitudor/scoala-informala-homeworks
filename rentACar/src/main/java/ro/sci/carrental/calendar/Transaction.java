@@ -1,4 +1,4 @@
-package ro.sci.carrental.Calendar;
+package ro.sci.carrental.calendar;
 
 import ro.sci.carrental.domain.customer.Customer;
 

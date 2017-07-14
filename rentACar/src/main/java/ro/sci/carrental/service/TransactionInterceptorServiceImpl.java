@@ -1,6 +1,6 @@
 package ro.sci.carrental.service;
 
-import ro.sci.carrental.Calendar.Transaction;
+import ro.sci.carrental.calendar.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;

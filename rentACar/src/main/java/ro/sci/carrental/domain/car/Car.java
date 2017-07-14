@@ -119,4 +119,20 @@ package ro.sci.carrental.domain.car;
         this.rentPrice = rentPrice;
     }
 
+    public String toString() {
+        return "Car{" +
+                "make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", size=" + size +
+                ", color='" + color + '\'' +
+                ", seats=" + seats +
+                ", doors=" + doors +
+                ", ac=" + ac +
+                ", gps=" + gps +
+                ", gearbox=" + gearbox +
+                ", fuelType=" + fuelType +
+                ", vehicleCategory=" + vehicleCategory +
+                '}';
+    }
+
 }

@@ -1,14 +1,14 @@
 package ro.sci.carrental;
 
-import ro.sci.carrental.domain.car.*;
+import ro.sci.carrental.domain.car.Car;
 import ro.sci.carrental.domain.customer.Customer;
-import ro.sci.carrental.domain.customer.CustomerAddress;
-import ro.sci.carrental.domain.customer.PaymentMethod;
-import ro.sci.carrental.repository.CarRepository;
-import ro.sci.carrental.repository.CarRepositoryImpl;
-import ro.sci.carrental.repository.CustomerRepositoryImpl;
-import ro.sci.carrental.simulations.SimulateCars;
-import ro.sci.carrental.simulations.SimulateCustomer;
+import ro.sci.carrental.readerCar.CarConvertor;
+import ro.sci.carrental.readerCar.EntityReader;
+import ro.sci.carrental.readerCar.InvalidEntityException;
+import ro.sci.carrental.readerCar.CustomerConvertor;
+
+import java.io.File;
+import java.util.List;
 
 
 /**
@@ -17,39 +17,40 @@ import ro.sci.carrental.simulations.SimulateCustomer;
 public class Main {
     public static void main(String[] args) {
 
-        Car bmw =new Car ();
-        bmw.setMake ("BMW");
-        bmw.setModel ("335i");
-        bmw.hasAc(true);
-        bmw.hasGps(true);
-        bmw.setGearbox(Gearbox.MANUAL);
-        bmw.setFuelType (FuelType.PETROL);
-        bmw.setDoors (2);
-        bmw.setSize (5f);
-        bmw.setColor ("Black");
-        bmw.setMaxMilagePerRent (200);
-        bmw.setMinAgeRequired (18);
-        bmw.setPower (313);
-        bmw.setVehicleCategory (VehicleCategory.coupe);
 
-        CarRepositoryImpl carRepository = new CarRepositoryImpl ();
-        carRepository.add (bmw);
-
-        Customer customer1 = new Customer ();
-        customer1.setFirstName ("Tudor");
-        customer1.setLastName ("Radoivici");
-        customer1.setEmail ("radovicitudor@gmail.com");
-        customer1.setPaymentMethod (PaymentMethod.CASH);
-        customer1.setTelephone ("0740300364");
-        customer1.setId (1);
-
-        CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl ();
-
-        customerRepository.add (customer1);
-
-        SimulateCars simulateCars = new SimulateCars ();
-        simulateCars.searches (carRepository);
-        SimulateCustomer simulateCustomer = new SimulateCustomer ();
-        simulateCustomer.searches (customerRepository);
+        File file = new File ("cars.txt");
+        EntityReader ent = new EntityReader ();
+        List<String> lines = ent.readLines (file);
+        CarConvertor carConvertor = new CarConvertor ();
+        int i = 0;
+        for (String line : lines) {
+            i++;
+            Car car = null;
+            try {
+                car = carConvertor.convert(line);
+                System.out.println(car);
+            } catch (InvalidEntityException e) {
+                System.out.println ("invalid car for: [" + line + "] at line: " + i);
+            }
+        }
     }
 }
+       /* File customers = new File ("customers.txt");
+        EntityReader customerEntity = new EntityReader ();
+        List<String> customerLines = customerEntity.readLines (customers);
+        CustomerConvertor customerConvertor = new CustomerConvertor ();
+        i = 0;
+        for (String line : customerLines) {
+            i++;
+            Customer customer = null;
+            try {
+                customer = customerConvertor.convert (line);
+                System.out.println (customer);
+            } catch (InvalidEntityException e) {
+
+                System.out.println ("Invalid customer for:[" + line + "] at line" + i);
+            }
+        }
+
+    }
+}*/
