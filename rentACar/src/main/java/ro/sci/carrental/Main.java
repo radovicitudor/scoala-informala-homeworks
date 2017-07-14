@@ -48,7 +48,6 @@ public class Main {
 
         SimulateCars simulateCars = new SimulateCars ();
         simulateCars.searches (carRepository);
-
         SimulateCustomer simulateCustomer = new SimulateCustomer ();
         simulateCustomer.searches (customerRepository);
     }
