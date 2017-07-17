@@ -19,13 +19,13 @@ public class CustomerConvertor implements Convertor<Customer> {
         Customer customer = new Customer ();
         customer.setFirstName (tokens[0]);
         customer.setLastName (tokens[1]);
-       /* // customer.setCustomerAddress (tokens[2]);
+       // customer.setCustomerAddress (Object.tokens[2]);
         customer.setId (Integer.valueOf (tokens[2]));
         customer.setTelephone (String.valueOf (tokens[3]));
-      //  customer.setDateOfBirth token 5
-        // customer.setDateOfDriversLicense token 6
-        customer.setEmail (String.valueOf (tokens[4]));
-        customer.setPaymentMethod (PaymentMethod.valueOf (tokens[5].toUpperCase ())); */
+        customer.setDateOfBirth (String.valueOf (tokens[4]));
+        customer.setDateOfDriversLicense (String.valueOf (5));
+        customer.setEmail (String.valueOf (tokens[6]));
+        customer.setPaymentMethod (PaymentMethod.valueOf (tokens[7].toUpperCase ()));
 
         return customer;
     }

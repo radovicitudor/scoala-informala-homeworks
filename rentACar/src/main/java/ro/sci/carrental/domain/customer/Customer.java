@@ -1,7 +1,5 @@
 package ro.sci.carrental.domain.customer;
 
-import java.text.SimpleDateFormat;
-
 
 /**
  * Created by tudorradovici on 29/05/17.
@@ -13,8 +11,8 @@ public class Customer {
     private String telephone;
     private String email;
 
-    private SimpleDateFormat dateOfBirth;
-    private SimpleDateFormat dateOfDriversLicense;
+    private String dateOfBirth;
+    private String dateOfDriversLicense;
 
     private CustomerAddress customerAddress;
     private PaymentMethod paymentMethod;
@@ -64,9 +62,13 @@ public class Customer {
         this.telephone = telephone;
     }
 
-    public SimpleDateFormat getDateOfBirth(){return dateOfBirth;}
+    public String getDateOfBirth(){return dateOfBirth;}
 
-    public SimpleDateFormat getDateOfDriversLicense(){return dateOfDriversLicense;}
+    public void setDateOfBirth(String dateOfBirth){this.dateOfBirth =dateOfBirth;}
+
+    public String getDateOfDriversLicense(){return dateOfDriversLicense;}
+
+    public void setDateOfDriversLicense (String dateOfDriversLicense){this.dateOfDriversLicense=dateOfDriversLicense;}
 
     public String getEmail() {
         return email;
