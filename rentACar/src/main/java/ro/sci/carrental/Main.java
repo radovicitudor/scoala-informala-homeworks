@@ -33,23 +33,21 @@ public class Main {
                 System.out.println ("invalid car for: [" + line + "] at line: " + i);
             }
         }
-    }
-}
-        File customers = new File ("customers.txt");
-        EntityReader customerEntity = new EntityReader ();
-        List<String> customerLines = customerEntity.readLines (customers);
+
+        File customerFile = new File ("customers.txt");
+        EntityReader customerEnt = new EntityReader ();
+        lines = customerEnt.readLines (customerFile);
         CustomerConvertor customerConvertor = new CustomerConvertor ();
         i = 0;
-        for (String line : customerLines) {
+        for (String line : lines) {
             i++;
             Customer customer = null;
             try {
-                customer = custom[erConvertor.convert (line);
-                System.out.println (customer);
+                customer = customerConvertor.convert(line);
+                System.out.println(customer);
             } catch (InvalidEntityException e) {
-
-                System.out.println ("Invalid customer for:[" + line + "] at line" + i);
+                System.out.println ("invalid customer for: [" + line + "] at line: " + i);
             }
         }
-
     }
+}

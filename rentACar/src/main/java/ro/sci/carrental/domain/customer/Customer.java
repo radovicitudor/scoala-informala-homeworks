@@ -22,25 +22,7 @@ public class Customer {
     /**
      *
      */
-    public Customer() {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.telephone = telephone;
-        this.dateOfDriversLicense = dateOfDriversLicense;
-        this.dateOfBirth = dateOfBirth;
-        this.email = email;
-        this.customerAddress = customerAddress;
-        this.paymentMethod = paymentMethod;
-    }
-    public Customer(int id, String firstName, String lastName, String email, CustomerAddress customerAddress, PaymentMethod paymentMethod){
-        this.id=id;
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.email=email;
-        this.customerAddress=customerAddress;
-        this.paymentMethod=paymentMethod;
-    }
+    public Customer() {}
 
     public String getFirstName() {
         return firstName;
@@ -101,4 +83,21 @@ public class Customer {
     public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
+
+    public String toString(){
+        return "Customer {" +
+                "firstName='"+firstName+'\''+
+                "lastName='"+lastName+'\''+
+                "customerAddress='"+customerAddress+'\''+
+                "id='"+id+'\''+
+                "telephone='"+telephone+'\''+
+                "dateOfBirth='"+dateOfBirth+'\''+
+                "dateOfDriverLicense='"+dateOfDriversLicense+'\''+
+                "email='"+email+'\''+
+                "paymentMethod='"+paymentMethod+'\''+
+                '}';
+
+
+    }
+
 }
