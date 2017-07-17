@@ -35,7 +35,7 @@ public class Main {
         }
     }
 }
-       /* File customers = new File ("customers.txt");
+        File customers = new File ("customers.txt");
         EntityReader customerEntity = new EntityReader ();
         List<String> customerLines = customerEntity.readLines (customers);
         CustomerConvertor customerConvertor = new CustomerConvertor ();
@@ -44,7 +44,7 @@ public class Main {
             i++;
             Customer customer = null;
             try {
-                customer = customerConvertor.convert (line);
+                customer = custom[erConvertor.convert (line);
                 System.out.println (customer);
             } catch (InvalidEntityException e) {
 
@@ -53,4 +53,3 @@ public class Main {
         }
 
     }
-}*/
