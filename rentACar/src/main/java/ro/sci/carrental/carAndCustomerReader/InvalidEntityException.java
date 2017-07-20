@@ -1,4 +1,4 @@
-package ro.sci.carrental.readerCar;
+package ro.sci.carrental.carAndCustomerReader;
 
 /**
  * Created by tudor.radovici on 14.07.2017.

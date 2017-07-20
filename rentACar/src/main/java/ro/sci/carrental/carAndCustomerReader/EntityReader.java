@@ -1,4 +1,4 @@
-package ro.sci.carrental.readerCar;
+package ro.sci.carrental.carAndCustomerReader;
 
 import java.io.BufferedReader;
 import java.io.File;

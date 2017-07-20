@@ -1,4 +1,4 @@
-package ro.sci.carrental.readerCar;
+package ro.sci.carrental.carAndCustomerReader;
 
 import ro.sci.carrental.domain.car.Car;
 import ro.sci.carrental.domain.car.FuelType;
