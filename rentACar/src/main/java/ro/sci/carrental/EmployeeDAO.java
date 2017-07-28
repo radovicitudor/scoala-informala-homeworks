@@ -1,13 +1,11 @@
-import ro.sci.carrental.carAndCustomerReader.CarReaderThread;
-import ro.sci.carrental.carAndCustomerReader.CustomerReaderThread;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import ro.sci.carrental.domain.car.Car;
 
 
 public class EmployeeDAO {
@@ -30,7 +28,7 @@ public class EmployeeDAO {
                 System.out.println(rs.getString("id") + " | "  +
                         rs.getString("make") + " | " +
                         rs.getString("model")+" | "+
-                        rs.getString("size") + " | " +
+                        rs.getFloat("size") + " | " +
                         rs.getString("color") + " | " +
                         rs.getString("seats") + " | " +
                         rs.getString("color") + " | " +
@@ -38,6 +36,15 @@ public class EmployeeDAO {
                         rs.getString("minagerequired")
                 );
 
+                Car car = new Car();
+                car.setMake(rs.getString("make"));
+                car.setModel(rs.getString("model"));
+                car.setSize(rs.getFloat("size"));
+                car.setColor(rs.getString("color"));
+                car.setSeats(rs.getInt("seats"));
+                car.setColor(rs.getString("color"));
+                car.setPower(rs.getInt("power"));
+                car.setMinAgeRequired(rs.getInt("minagerequired"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
