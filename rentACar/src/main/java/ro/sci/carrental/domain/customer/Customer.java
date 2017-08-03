@@ -10,10 +10,8 @@ public class Customer {
     private String lastName;
     private String telephone;
     private String email;
-
     private String dateOfBirth;
     private String dateOfDriversLicense;
-
     private CustomerAddress customerAddress;
     private PaymentMethod paymentMethod;
 
@@ -88,15 +86,15 @@ public class Customer {
 
     public String toString(){
         return "Customer {" +
-                "firstName='"+firstName+'\''+
-                "lastName='"+lastName+'\''+
-                "customerAddress='"+customerAddress+'\''+
-                "id='"+id+'\''+
-                "telephone='"+telephone+'\''+
-                "dateOfBirth='"+dateOfBirth+'\''+
-                "dateOfDriverLicense='"+dateOfDriversLicense+'\''+
-                "email='"+email+'\''+
-                "paymentMethod='"+paymentMethod+'\''+
+                ", id='"+ id +'\'' +
+                ", firstName='"+ firstName +'\'' +
+                ", lastName='"+ lastName +'\'' +
+                ", customerAddress='"+ customerAddress +'\'' +
+                ", telephone='"+ telephone +'\'' +
+                ", dateOfBirth='"+ dateOfBirth +'\'' +
+                ", dateOfDriverLicense='"+ dateOfDriversLicense +'\''+
+                ", email='"+ email +'\'' +
+                ", paymentMethod='"+ paymentMethod +'\'' +
                 '}';
 
 

@@ -1,40 +1,28 @@
+package ro.sci.carrental.util;
 
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import ro.sci.carrental.domain.car.Car;
+import ro.sci.carrental.domain.car.FuelType;
+import ro.sci.carrental.domain.car.Gearbox;
+import ro.sci.carrental.domain.car.VehicleCategory;
 
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class EmployeeDAO {
-
-    public void printAllEmployees() {
+public class CarDAOScoalaInformala {
+    public void printAllCars() {
 
 
 
         try (
-                Connection conn = newConnection("postgresql",
-                        "localhost", "5432", "grupa7",
-                        "postgres", "1234");
+                Connection conn = newConnection("postgresql", "localhost", "5432", "grupa7", "postgres", "1234");
                 Statement stm = conn.createStatement();
                 ResultSet rs = stm.executeQuery(
-                        "SELECT id,make,model,size,color,seats,color,power, minagerequired FROM cars");
-        ){
+                        "SELECT id,make,model,size,color,gps,air_condioning,seats,doors,color,power,fueltype,gearbox, minagerequired,vehiclecategory FROM cars");
+        )
+        {
 
             while (rs.next()) {
-
-                System.out.println(rs.getString("id") + " | "  +
-                        rs.getString("make") + " | " +
-                        rs.getString("model")+" | "+
-                        rs.getFloat("size") + " | " +
-                        rs.getString("color") + " | " +
-                        rs.getString("seats") + " | " +
-                        rs.getString("color") + " | " +
-                        rs.getString("power") + " | " +
-                        rs.getString("minagerequired")
-                );
 
                 Car car = new Car();
                 car.setMake(rs.getString("make"));
@@ -42,10 +30,19 @@ public class EmployeeDAO {
                 car.setSize(rs.getFloat("size"));
                 car.setColor(rs.getString("color"));
                 car.setSeats(rs.getInt("seats"));
+                car.setDoors(rs.getInt("doors"));
                 car.setColor(rs.getString("color"));
                 car.setPower(rs.getInt("power"));
+                car.setFuelType (FuelType.valueOf (rs.getString("fueltype").toUpperCase ()));
+                car.setGearbox (Gearbox.valueOf (rs.getString("gearbox").toUpperCase ()));
+                car.setVehicleCategory (VehicleCategory.valueOf (rs.getString("vehiclecategory").toUpperCase ()));
                 car.setMinAgeRequired(rs.getInt("minagerequired"));
+                car.setGps(rs.getBoolean("gps"));
+                car.setAc(rs.getBoolean("air_condioning"));
+                Logger carLogger =	Logger.getLogger("my.class.fqn");
+                carLogger.log (Level.INFO, String.valueOf(car));
             }
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -80,7 +77,9 @@ public class EmployeeDAO {
                     // ...
                     .append("://").append(host).append(":").append(port).append("/").append(dbName).append("?user=")
                     .append(user).append("&password=").append(pw).toString();
+            System.out.println(url);
             return DriverManager.getConnection(url);
+
         } catch (SQLException e) {
             System.err.println("Cannot connect to the database: " + e.getMessage());
         }
@@ -88,20 +87,5 @@ public class EmployeeDAO {
         return null;
     }
 
-    public static void main(String[] args) throws Exception {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        employeeDAO.printAllEmployees();
-    /*
-        Logger mainLogger =	Logger.getLogger("my.class.fqn");
-        CarReaderThread carReaderThread = new CarReaderThread ();
-        carReaderThread.start ();
-        mainLogger.log (Level.INFO, "carReaderThread started");
 
-        CustomerReaderThread customerReaderThread = new CustomerReaderThread ();
-        customerReaderThread.start ();
-        mainLogger.log (Level.INFO, "customerReaderThread started");
-    */
-    }
-
-
-    }
+}

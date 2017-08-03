@@ -83,13 +83,13 @@ package ro.sci.carrental.domain.car;
 
     public void setMilageLimit(){this.milageLimit = milageLimit;}
 
-    public boolean hasAc(boolean b){return  ac;}
+    public boolean hasAc(boolean ac){return  ac;}
 
-    public void setAc(){this.ac=ac;}
+    public void setAc(boolean ac){this.ac= ac;}
 
-    public boolean hasGps(boolean b){return gps;}
+    public boolean hasGps(boolean gps){return gps;}
 
-    public  void setGps(){this.gps=gps;}
+    public  void setGps(boolean gps){this.gps=gps;}
 
     public Gearbox getGearbox(){return gearbox;}
 
@@ -125,12 +125,13 @@ package ro.sci.carrental.domain.car;
                 ", model='" + model + '\'' +
                 ", size=" + size +
                 ", color='" + color + '\'' +
-                ", seats=" + seats +
-                ", doors=" + doors +
-                ", ac=" + ac +
-                ", gps=" + gps +
-                ", gearbox=" + gearbox +
-                ", fuelType=" + fuelType +
+                ", seats=" + seats + '\'' +
+                ", doors=" + doors + '\'' +
+                ", ac=" + ac + '\'' +
+                ", gps=" + gps + '\'' +
+                ", gearbox=" + gearbox + '\'' +
+                ", power=" + power + '\'' +
+                ", fuelType=" + fuelType + '\'' +
                 ", vehicleCategory=" + vehicleCategory +
                 '}';
     }
