@@ -24,6 +24,7 @@ public class Main {
         cristian.setFirstName("cristian");
         cristian.setLastName("radovici");
 
+
         CustomerRepository<Customer> customerRepository = new CustomerRepositoryImpl();
 
         customerRepository.add(tudor);
