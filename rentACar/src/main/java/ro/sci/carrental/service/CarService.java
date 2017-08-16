@@ -6,7 +6,24 @@ import java.util.List;
 /**
  * Service Interface for car.
  */
-public interface CarService {
+public interface CarService<T> {
+    /**
+     *
+     * @param t
+     */
+    void add(T t);
+
+    /**
+     *
+     * @param t
+     */
+    void delete(T t);
+
+    /**
+     *
+     * @param t
+     */
+    void update(T t);
     /**
      * Find same make cars in system.
      * @param make car make
@@ -32,3 +49,4 @@ public interface CarService {
      */
     List<Car> findCarsByMakeModelColorAndSeats(String make, String model, String color, int seats);
 }
+

@@ -10,16 +10,16 @@ public class CarConvertor implements Convertor<Car> {
     @Override
     public Car convert(String convertedString) throws InvalidEntityException {
         String[] tokens = convertedString.split (",");
-        if (tokens.length != 5) {
+        if (tokens.length != 2) {
             throw new InvalidEntityException ("Invalid Car Description");
         }
 
         Car car = new Car ();
         car.setMake (tokens[0]);
         car.setModel (tokens[1]);
-        car.setColor (tokens[2]);
-        car.setDoors (Integer.valueOf (tokens[3]));
-        car.setFuelType (FuelType.valueOf (tokens[4].toUpperCase ()));
+//        car.setColor (tokens[2]);
+//        car.setDoors (Integer.valueOf (tokens[3]));
+//        car.setFuelType (FuelType.valueOf (tokens[4].toUpperCase ()));
         return car;
     }
 }

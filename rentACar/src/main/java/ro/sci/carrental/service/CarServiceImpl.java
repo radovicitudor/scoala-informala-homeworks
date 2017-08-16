@@ -1,86 +1,50 @@
 package ro.sci.carrental.service;
 
 import ro.sci.carrental.domain.car.Car;
-import ro.sci.carrental.repository.CarRepositoryImpl;
+import ro.sci.carrental.repository.CarRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Implementation of CarService.
  *
  */
-public class CarServiceImpl implements CarService {
+public class CarServiceImpl implements CarService<Car> {
 
-    private CarRepositoryImpl carRepository;
+    public CarRepository<Car> carRepository;
 
-    public CarServiceImpl(CarRepositoryImpl carRepository) {
-
-        this.carRepository = carRepository;
+    public CarServiceImpl(CarRepository<Car> carRepository){
+        this.carRepository=carRepository;
     }
 
-    /**
-     * Public method findCarsByMake searches cars by make.
-     *
-     * @param make holds value of car make
-     * @return list of found cars.
-     */
+    @Override
+    public void add(Car car) {
+        this.carRepository.add(car);
+    }
 
+    @Override
+    public void delete(Car car) {
+        this.carRepository.delete(car);
+
+    }
+
+    @Override
+    public void update(Car t) {
+        this.carRepository.update(t);
+    }
+
+    @Override
     public List<Car> findCarsByMake(String make) {
-        List<Car> foundCars = new ArrayList<Car>();
-
-        for (Car car : carRepository.getAll()) {
-            if (car.getMake().equalsIgnoreCase(make)) {
-                foundCars.add(car);
-            }
-        }
-
-        return foundCars;
+        return null;
     }
 
-    /**
-     * Public method findCarsByMakeAndModel searches cars by make and model.
-     *
-     * @param make  holds value of car make
-     * @param model holds value f car model
-     * @return list of found cars.
-     */
+    @Override
     public List<Car> findCarsByMakeAndModel(String make, String model) {
-        List<Car> foundCars = new ArrayList<Car>();
-
-        for (Car car : carRepository.getAll()) {
-            if ((car.getModel().equalsIgnoreCase(model)) && (car.getMake().equalsIgnoreCase(make))) {
-                foundCars.add(car);
-            }
-        }
-
-        return foundCars;
+        return null;
     }
 
-    /**
-     * Public method findCarsByMakeModelColorAndSeats searches cars by make, model, color, seats.
-     *
-     * @param make  value of car make
-     * @param model value of car model
-     * @param color value of car color
-     * @param seats value of car seats
-     * @return list of found cars
-     */
+    @Override
     public List<Car> findCarsByMakeModelColorAndSeats(String make, String model, String color, int seats) {
-        List<Car> foundCars = new ArrayList<Car>();
-
-        for (Car car : carRepository.getAll()) {
-            if ((car.getModel().equalsIgnoreCase(model)) && (car.getMake().equalsIgnoreCase(make))
-                    && (car.getColor().equalsIgnoreCase(color)) && (car.getSeats() == seats)) {
-                foundCars.add(car);
-            }
-        }
-
-        return foundCars;
+        return null;
     }
-
-    public CarRepositoryImpl getCarRepository() {
-        return carRepository;
-    }
-
 }

@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Repository interface for Customer, this will help managing all persistence operations related to Customer.
  */
-public interface CustomerRepository {
+public interface CustomerRepository<C> {
     /**
      * Get all Customers in the system.
      *

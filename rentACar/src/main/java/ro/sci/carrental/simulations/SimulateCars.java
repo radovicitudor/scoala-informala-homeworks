@@ -1,6 +1,7 @@
 package ro.sci.carrental.simulations;
 
 import ro.sci.carrental.domain.car.Car;
+import ro.sci.carrental.repository.CarRepository;
 import ro.sci.carrental.repository.CarRepositoryImpl;
 import ro.sci.carrental.service.CarServiceImpl;
 
@@ -9,8 +10,8 @@ import java.util.List;
  * Created by tudorradovici on 29/05/17.
  */
 
-public class SimulateCars {
-    public void searches(CarRepositoryImpl carRepository){
+public class SimulateCars <T extends Car>{
+    public void searches(CarRepository<Car> carRepository){
         System.out.println("List of cars in Repository is :");
 
         for (Car car: carRepository.getAll())
@@ -22,9 +23,9 @@ public class SimulateCars {
 
 
         //search by make
-
+/*
         CarServiceImpl search1= new CarServiceImpl(carRepository);
-        List<Car> foundCarsByMake= search1.findCarsByMake("BMW");
+        List<Car> foundCarsByMake= search1.findCarsByMake("bmw");
 
         System.out.println("Search by make returns:");
         for (Car car :foundCarsByMake){
@@ -45,6 +46,6 @@ public class SimulateCars {
 
         System.out.println("End of cars by make and model:");
 
-
+*/
     }
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Implementation of Customer Repository.
  */
-public class CustomerRepositoryImpl implements CustomerRepository {
+public class CustomerRepositoryImpl implements CustomerRepository<Customer> {
 
     private List<Customer> customers = new ArrayList<Customer>();
 

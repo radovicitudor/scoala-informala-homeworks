@@ -11,22 +11,20 @@ import ro.sci.carrental.domain.car.Car;
  * Repository interface for car, this will help managing all persistence operations related to car.
  *
  */
-public interface CarRepository {
+public interface CarRepository<T extends Car> extends Repository<T>{
     /**
      * Get all cars in the system
      *
-     * @return List<car>
+     * @return List<Car>
      */
-    <T> List<T> getAll();
+    List<T> getAll();
 
     /**
      * * Return all the cars of a certain maker
      * @param v
-     * @param <T>
-     * @param <V>
-     * @return List<car>
+     * @return List<Car>
      */
-     <T extends Car, V> List<T>getCarsByMake(V v);
+     List<T>getCarsByMake(String v);
 
     /**
      * Return all cars by fuel type
@@ -35,26 +33,39 @@ public interface CarRepository {
      * @param <V>
      * @return List<car>
      */
-    <T, V> List<T> getCarsByFuelType(V v);
+     List<T> getCarsByFuelType(String v);
 
     /**
      * Add a car in the system.
      *
      * @param t
      */
-    <T> void add(T t);
+    void add(T t);
 
     /**
      * Delete a car from the system.
      *
      * @param t
      */
-    <T> void delete(T t);
+    void delete(T t);
 
     /**
      * Updates car information in the system.
      *
      * @param t
      */
-    <T> void update(T t);
+    void update(T t);
+
+    /**
+     *
+     * @param t
+     */
+    void reserve (T t);
+
+    /**
+     *
+     * @param t
+     */
+    void freeUp (T t);
+
 }
