@@ -25,8 +25,13 @@ public class CarDbWriter {
 
                 writeCarsConnection.setAutoCommit(false);
 
+                    writeCarsConnection.setAutoCommit(false);
+
                     writeCarsStm.setString(1,car.getMake());
                     writeCarsStm.setString(2,car.getModel());
+
+                    writeCarsConnection.commit();
+                    writeCarsConnection.setAutoCommit(true);
 
                     writeCarsConnection.commit();
                     writeCarsConnection.setAutoCommit(true);

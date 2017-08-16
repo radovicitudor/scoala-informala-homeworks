@@ -1,21 +1,16 @@
 package ro.sci.carrental;
 
-import ro.sci.carrental.carAndCustomerReader.CarReaderThread;
 import ro.sci.carrental.carAndCustomerReader.InvalidEntityException;
-import ro.sci.carrental.dbWriters.CarDbWriter;
-import ro.sci.carrental.dbWriters.CustomerDbWriter;
 import ro.sci.carrental.domain.car.Car;
-import ro.sci.carrental.domain.customer.Customer;
-import ro.sci.carrental.repository.CarRepository;
-import ro.sci.carrental.repository.CarRepositoryImpl;
-import ro.sci.carrental.repository.CustomerRepository;
-import ro.sci.carrental.repository.CustomerRepositoryImpl;
+import ro.sci.carrental.repository.*;
+import ro.sci.carrental.service.CarService;
+import ro.sci.carrental.service.CarServiceImpl;
 
 public class Main {
 
     public static void main(String[] args)throws InvalidEntityException, InterruptedException  {
 
-
+/*
         Customer tudor= new Customer();
         tudor.setFirstName("tudor");
         tudor.setLastName("Radovici");
@@ -50,6 +45,15 @@ public class Main {
 
 
         CarReaderThread carReaderThread = new CarReaderThread();
-        carReaderThread.start();
+        carReaderThread.start();*/
+
+        CarService<Car> carService = new CarServiceImpl(new CarDataBaseRepositoryImpl());
+
+        Car bmw = new Car();
+        bmw.setModel("335");
+        bmw.setMake("bmw");
+
+        carService.add(bmw);
+
     }
 }

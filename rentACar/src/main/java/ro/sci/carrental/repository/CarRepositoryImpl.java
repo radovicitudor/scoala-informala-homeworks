@@ -20,6 +20,11 @@ public class CarRepositoryImpl implements CarRepository<Car> {
     }
 
     @Override
+    public void addAll() {
+
+    }
+
+    @Override
     public List<Car> getCarsByFuelType(String fuelType) {
         List<Car> seachedCars = new ArrayList<>();
 
