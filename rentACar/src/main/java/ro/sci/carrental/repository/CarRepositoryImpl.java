@@ -64,9 +64,11 @@ public class CarRepositoryImpl implements CarRepository<Car> {
         cars.removeIf(anotherCar -> anotherCar.equals(car));
     }
 
-    public void update(Car car) {
-        cars.set(cars.indexOf(car), car);
+    @Override
+    public void update(Car newCar, Car oldCar) {
+        cars.set(cars.indexOf(oldCar), newCar);
     }
+
 
     public void reserve(Car car) {
         car.isReserved(true);

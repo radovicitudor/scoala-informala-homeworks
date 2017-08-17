@@ -54,7 +54,7 @@ public interface CarRepository<T extends Car> extends Repository<T>{
      *
      * @param t
      */
-    void update(T t);
+    void update(T t,T v);
 
     /**
      *

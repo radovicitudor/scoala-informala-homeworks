@@ -40,6 +40,10 @@ public class CarServiceImpl implements CarService<Car> {
     public void delete(Car t) {
         this.carRepository.delete(t);
     }
+    public void update( Car newCar, Car oldCar){
+        this.carRepository.update(newCar,oldCar);
+
+    }
 
 
     /**

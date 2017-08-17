@@ -1,5 +1,7 @@
 package ro.sci.carrental.repository;
 
+import ro.sci.carrental.domain.car.Car;
+
 import java.util.List;
 
 public  interface Repository<T> {
@@ -8,9 +10,11 @@ public  interface Repository<T> {
 
     void delete(T t);
 
-    void update(T t);
+    void update(T newCar, T oldCar);
 
     List<T> getAll();
 
     void addAll();
+
+
 }

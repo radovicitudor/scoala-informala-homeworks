@@ -5,9 +5,10 @@ package ro.sci.carrental.domain.car;
  */
 
     public class Car {
+        public int id;
         private String make;
         private String model;
-        private float size;
+        private double size;
         private String color;
         private int seats;
         private int doors;
@@ -28,6 +29,10 @@ package ro.sci.carrental.domain.car;
          */
         public Car() {}
 
+        public int getId(){return id;}
+
+        public void setId(int id){this.id=id;}
+
         public String getMake(){return make;};
 
         public void setMake(String make){this.make=make;}
@@ -36,7 +41,7 @@ package ro.sci.carrental.domain.car;
 
         public void setModel(String model){this.model=model;}
 
-        public float getSize() {
+        public double getSize() {
             return size;
         }
 
@@ -68,26 +73,26 @@ package ro.sci.carrental.domain.car;
             this.doors = doors;
         }
 
-        public int  getPower(int power){return power;}
+        public int  getPower(){return power;}
 
         public void setPower(int power){this.power=power;}
 
-        public int getMinAgeRequired(int minAgeRequired){return minAgeRequired;}
+        public int getMinAgeRequired(){return minAgeRequired;}
 
         public void setMinAgeRequired(int minAgeRequired){this.minAgeRequired=minAgeRequired;}
 
-        public int getMaxMilagePerRent(int maxMilagePerRent){return maxMilagePerRent;}
+        public int getMaxMilagePerRent(){return maxMilagePerRent;}
 
         public void setMaxMilagePerRent(int maxMilagePerRent){this.maxMilagePerRent=maxMilagePerRent;}
 
 
         public void setMilageLimit(){this.milageLimit = milageLimit;}
 
-        public boolean hasAc(boolean ac){return  ac;}
+        public boolean hasAc(){return  ac;}
 
         public void setAc(boolean ac){this.ac= ac;}
 
-        public boolean hasGps(boolean gps){return gps;}
+        public boolean hasGps(){return gps;}
 
         public  void setGps(boolean gps){this.gps=gps;}
 
@@ -95,11 +100,11 @@ package ro.sci.carrental.domain.car;
 
         public void setGearbox(Gearbox gearbox){this.gearbox=gearbox;}
 
-        public FuelType getFuelType(FuelType fuelType){return  fuelType;}
+        public FuelType getFuelType(){return  fuelType;}
 
         public void setFuelType(FuelType fuelType){this.fuelType=fuelType;}
 
-        public VehicleCategory getVehicleCategory(VehicleCategory vehicleCategory){return  vehicleCategory;}
+        public VehicleCategory getVehicleCategory(){return  vehicleCategory;}
 
         public void setVehicleCategory(VehicleCategory vehicleCategory){this.vehicleCategory=vehicleCategory;}
 
@@ -121,6 +126,7 @@ package ro.sci.carrental.domain.car;
 
     public String toString() {
         return "Car{" +
+                "id='" + id + '\'' +
                 "make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", size=" + size +

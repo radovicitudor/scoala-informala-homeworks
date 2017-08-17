@@ -34,5 +34,6 @@ public interface CarService<T> {
      */
     List<T> findCarsByMake(String v);
 
+    void update(T t, T v);
 }
 
