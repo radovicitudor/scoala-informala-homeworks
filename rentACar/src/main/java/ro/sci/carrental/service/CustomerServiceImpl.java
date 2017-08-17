@@ -1,6 +1,7 @@
 package ro.sci.carrental.service;
 
 import ro.sci.carrental.domain.customer.Customer;
+import ro.sci.carrental.repository.CustomerDataBaseRepositoryImpl;
 import ro.sci.carrental.repository.CustomerRepositoryImpl;
 
 import java.text.SimpleDateFormat;
@@ -17,6 +18,33 @@ public class CustomerServiceImpl implements CustomerService{
     public CustomerServiceImpl(CustomerRepositoryImpl customerRepository){
 
         this.customerRepository=customerRepository;
+    }
+
+
+
+    @Override
+    public void add(Object customer) {
+        
+    }
+
+    @Override
+    public void delete(Object customer) {
+
+    }
+
+    @Override
+    public void update(Object newCustomer, Object oldCustomer) {
+
+    }
+
+
+    public void update(Object customer) {
+
+    }
+
+    @Override
+    public void addAll() {
+
     }
 
     public List<Customer> findCustomersByFirstName(String firstName) {

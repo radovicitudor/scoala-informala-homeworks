@@ -5,9 +5,12 @@ import ro.sci.carrental.domain.car.Car;
 import ro.sci.carrental.domain.car.FuelType;
 import ro.sci.carrental.domain.car.Gearbox;
 import ro.sci.carrental.domain.car.VehicleCategory;
+import ro.sci.carrental.domain.customer.Customer;
 import ro.sci.carrental.repository.*;
 import ro.sci.carrental.service.CarService;
 import ro.sci.carrental.service.CarServiceImpl;
+import ro.sci.carrental.service.CustomerService;
+import ro.sci.carrental.service.CustomerServiceImpl;
 
 public class Main {
 
@@ -15,6 +18,7 @@ public class Main {
 
 
         CarService<Car> carService = new CarServiceImpl(new CarDataBaseRepositoryImpl());
+        CustomerService<Customer> customerService = new CustomerDataBaseRepositoryImpl();
 
 
 //        Car mercedes = new Car();
@@ -48,7 +52,7 @@ public class Main {
 //
 //      carService.update(bmw2,bmw);
 
-          carService.addAll();
+        customerService.addAll();
 
     }
 }

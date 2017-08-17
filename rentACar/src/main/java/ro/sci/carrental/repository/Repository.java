@@ -10,7 +10,7 @@ public  interface Repository<T> {
 
     void delete(T t);
 
-    void update(T newCar, T oldCar);
+    void update(T t, T v);
 
     List<T> getAll();
 

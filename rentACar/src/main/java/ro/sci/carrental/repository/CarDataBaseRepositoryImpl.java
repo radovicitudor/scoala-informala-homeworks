@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarDataBaseRepositoryImpl extends CarDataBase implements Repository<Car>  {
+public class CarDataBaseRepositoryImpl extends DataBase implements Repository<Car>  {
     private List<Car> dbCars=new ArrayList<>();
 
 
@@ -19,57 +19,57 @@ public class CarDataBaseRepositoryImpl extends CarDataBase implements Repository
 
     @Override
     public void add(Car car) {
-            try (Connection writeCarsConnection  = newConnection(
-                    "postgresql",
-                    "localhost",
-                    "5432",
-                    "grupa7",
-                    "postgres",
-                    "1234");
-                    PreparedStatement writeCarsStm = writeCarsConnection.prepareStatement("INSERT INTO cars(" +
-                            "make," +
-                            "model," +
-                            "size," +
-                            "color," +
-                            "seats," +
-                            "doors," +
-                            "power," +
-                            "minagerequired," +
-                            "air_condioning," +
-                            "gps," +
-                            "gearbox," +
-                            "fueltype," +
-                            "vehiclecategory" +
-                            ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+        try (Connection writeCarsConnection  = newConnection(
+                "postgresql",
+                "localhost",
+                "5432",
+                "grupa7",
+                "postgres",
+                "1234");
+             PreparedStatement writeCarsStm = writeCarsConnection.prepareStatement("INSERT INTO cars(" +
+                     "make," +
+                     "model," +
+                     "size," +
+                     "color," +
+                     "seats," +
+                     "doors," +
+                     "power," +
+                     "minagerequired," +
+                     "air_condioning," +
+                     "gps," +
+                     "gearbox," +
+                     "fueltype," +
+                     "vehiclecategory" +
+                     ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
 
 
-                    writeCarsConnection.setAutoCommit(false);
+            writeCarsConnection.setAutoCommit(false);
 
 
-                    writeCarsStm.setString(1,car.getMake());
-                    writeCarsStm.setString(2,car.getModel());
-                    writeCarsStm.setDouble(3,car.getSize());
-                    writeCarsStm.setString(4,car.getColor());
-                    writeCarsStm.setInt(5,car.getSeats());
-                    writeCarsStm.setInt(6,car.getDoors());
-                    writeCarsStm.setInt(7,car.getPower());
-                    writeCarsStm.setInt(8,car.getMinAgeRequired());
-                    writeCarsStm.setBoolean(9,car.hasAc());
-                    writeCarsStm.setBoolean(10,car.hasGps());
-                    writeCarsStm.setString(11,car.getGearbox().toString());
-                    writeCarsStm.setString(12,car.getFuelType().toString());
-                    writeCarsStm.setString(13,car.getVehicleCategory().toString());
+            writeCarsStm.setString(1,car.getMake());
+            writeCarsStm.setString(2,car.getModel());
+            writeCarsStm.setDouble(3,car.getSize());
+            writeCarsStm.setString(4,car.getColor());
+            writeCarsStm.setInt(5,car.getSeats());
+            writeCarsStm.setInt(6,car.getDoors());
+            writeCarsStm.setInt(7,car.getPower());
+            writeCarsStm.setInt(8,car.getMinAgeRequired());
+            writeCarsStm.setBoolean(9,car.hasAc());
+            writeCarsStm.setBoolean(10,car.hasGps());
+            writeCarsStm.setString(11,car.getGearbox().toString());
+            writeCarsStm.setString(12,car.getFuelType().toString());
+            writeCarsStm.setString(13,car.getVehicleCategory().toString());
 
 
 
-                    writeCarsConnection.commit();
-                    writeCarsConnection.setAutoCommit(true);
-                    writeCarsStm.execute();
+            writeCarsConnection.commit();
+            writeCarsConnection.setAutoCommit(true);
+            writeCarsStm.execute();
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+    }
 
 
     @Override
@@ -81,7 +81,7 @@ public class CarDataBaseRepositoryImpl extends CarDataBase implements Repository
                 "grupa7",
                 "postgres",
                 "1234");
-        PreparedStatement carDeleteSTM= carDeleteConnection.prepareStatement("DELETE FROM cars where make=?"))
+            PreparedStatement carDeleteSTM= carDeleteConnection.prepareStatement("DELETE FROM cars where make=?"))
         {
             carDeleteSTM.setString(1,car.getMake());
             carDeleteSTM.execute();
@@ -95,19 +95,24 @@ public class CarDataBaseRepositoryImpl extends CarDataBase implements Repository
 
     public void update(Car newCar,Car oldCar) {
         try(Connection carUpdateConnection  = newConnection(
-            "postgresql",
-            "localhost",
-            "5432",
-            "grupa7",
-            "postgres",
-            "1234");
-    PreparedStatement carUpdateSTM =carUpdateConnection.prepareStatement("UPDATE cars SET make=?, model=?, color=? WHERE model=?")){
-            carUpdateSTM.setString(1, newCar.getMake());
+                "postgresql",
+                "localhost",
+                "5432",
+                "grupa7",
+                "postgres",
+                "1234");
+            PreparedStatement carUpdateSTM =carUpdateConnection.prepareStatement("UPDATE cars SET make=?, model=?, color=? WHERE model=?")){
+
+            carUpdateConnection.setAutoCommit(false);
+
+            carUpdateSTM.setString(1,newCar.getMake());
             carUpdateSTM.setString(2,newCar.getModel());
             carUpdateSTM.setString(3,newCar.getColor());
 
             carUpdateSTM.setString(4,oldCar.getModel());
 
+            carUpdateConnection.commit();
+            carUpdateConnection.setAutoCommit(true);
             carUpdateSTM.execute();
 
         } catch (SQLException e) {
