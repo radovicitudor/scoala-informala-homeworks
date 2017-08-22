@@ -29,8 +29,6 @@ public interface CarRepository<T extends Car> extends Repository<T>{
     /**
      * Return all cars by fuel type
      * @param v
-     * @param <T>
-     * @param <V>
      * @return List<car>
      */
      List<T> getCarsByFuelType(String v);

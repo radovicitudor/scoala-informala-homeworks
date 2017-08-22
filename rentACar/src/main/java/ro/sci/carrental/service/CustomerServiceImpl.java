@@ -1,7 +1,6 @@
 package ro.sci.carrental.service;
 
 import ro.sci.carrental.domain.customer.Customer;
-import ro.sci.carrental.repository.CustomerDataBaseRepositoryImpl;
 import ro.sci.carrental.repository.CustomerRepositoryImpl;
 
 import java.text.SimpleDateFormat;

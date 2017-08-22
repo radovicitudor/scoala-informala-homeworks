@@ -10,11 +10,7 @@ public  interface Repository<T> {
 
     void delete(T t);
 
-    void update(T t, T v);
+    void update(T t);
 
     List<T> getAll();
-
-    void addAll();
-
-
 }

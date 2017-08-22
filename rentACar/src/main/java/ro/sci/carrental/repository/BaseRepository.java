@@ -6,8 +6,9 @@ import ro.sci.carrental.domain.car.Car;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
-public class DataBase {
+public abstract class BaseRepository {
      void loadDriver() {
         try {
             Class.forName("org.postgresql.Driver").newInstance();
@@ -18,8 +19,13 @@ public class DataBase {
 
     }
 
-     Connection newConnection(String type, String host, String port, String dbName, String user,
-                                            String pw) {
+     Connection newConnection() {
+         String type="postgresql";
+         String host="localhost";
+         String port="5432";
+         String dbName="grupa7";
+         String user="postgres";
+         String pw="1234";
 
         loadDriver();
         DriverManager.setLoginTimeout(60); // wait 1 min; optional: DB may be
@@ -44,4 +50,5 @@ public class DataBase {
 
         return null;
     }
+
 }

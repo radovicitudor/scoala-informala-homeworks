@@ -14,15 +14,6 @@ public class CarServiceImpl implements CarService<Car> {
 
     private Repository<Car> carRepository;
 
-    public CarServiceImpl(Repository<Car> carRepository) {
-
-        this.carRepository = carRepository;
-    }
-
-    @Override
-    public void addAll() {
-        this.carRepository.addAll();
-    }
 
     @Override
     public List<Car> getAll() {
@@ -38,8 +29,8 @@ public class CarServiceImpl implements CarService<Car> {
     public void delete(Car t) {
         this.carRepository.delete(t);
     }
-    public void update( Car newCar, Car oldCar){
-        this.carRepository.update(newCar,oldCar);
+    public void update( Car car){
+        this.carRepository.update(car);
 
     }
 
@@ -63,4 +54,8 @@ public class CarServiceImpl implements CarService<Car> {
         return foundCars;
     }
 
+    @Override
+    public void setCarRepository(Repository<Car> carRepository) {
+        this.carRepository = carRepository;
+    }
 }

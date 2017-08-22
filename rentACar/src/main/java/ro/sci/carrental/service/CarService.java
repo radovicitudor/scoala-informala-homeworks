@@ -1,13 +1,14 @@
 package ro.sci.carrental.service;
 
 import ro.sci.carrental.domain.car.Car;
+import ro.sci.carrental.repository.Repository;
+
 import java.util.List;
 
 /**
  * Service Interface for car.
  */
 public interface CarService<T> {
-    void addAll();
 
     List<T> getAll();
 
@@ -34,6 +35,8 @@ public interface CarService<T> {
      */
     List<T> findCarsByMake(String v);
 
-    void update(T t, T v);
+    void update(T t);
+
+    void setCarRepository(Repository<Car> carRepository);
 }
 
