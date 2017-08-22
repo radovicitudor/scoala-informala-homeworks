@@ -19,6 +19,33 @@ public class CustomerServiceImpl implements CustomerService{
         this.customerRepository=customerRepository;
     }
 
+
+
+    @Override
+    public void add(Object customer) {
+        
+    }
+
+    @Override
+    public void delete(Object customer) {
+
+    }
+
+    @Override
+    public void update(Object newCustomer, Object oldCustomer) {
+
+    }
+
+
+    public void update(Object customer) {
+
+    }
+
+    @Override
+    public void addAll() {
+
+    }
+
     public List<Customer> findCustomersByFirstName(String firstName) {
         List<Customer> foundCustomers = new ArrayList<Customer> ();
 

@@ -8,20 +8,18 @@ import java.util.List;
 /**
  * Created by tudor.radovici on 31.05.2017.
  */
-public interface CustomerService {
+public interface CustomerService<T> {
 
-    /**
-     * Finds customers by first Name
-     * @param firstName
-     * @return List<Customer>
-     */
-    List<Customer> findCustomersByFirstName(String firstName);
+    void add(T customer);
 
-    /**
-     * Finds user by date of Birth and date of driver License
-     * @param dateOfBirth
-     * @param dateOfDriverLicense
-     * @return List<Customer>
-     */
-    List<Customer> findCustomersByDateOfBirthAndDriverLIcense (SimpleDateFormat dateOfBirth, SimpleDateFormat dateOfDriverLicense);
+    void delete(T customer);
+
+    void update(T newCustomer, T oldCustomer);
+
+    void addAll();
+
+
+
+
+
 }

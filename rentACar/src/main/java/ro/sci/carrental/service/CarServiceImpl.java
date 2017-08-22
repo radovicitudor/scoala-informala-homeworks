@@ -1,8 +1,9 @@
 package ro.sci.carrental.service;
 
 import ro.sci.carrental.domain.car.Car;
-import ro.sci.carrental.repository.CarRepository;
+import ro.sci.carrental.repository.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,40 +12,50 @@ import java.util.List;
  */
 public class CarServiceImpl implements CarService<Car> {
 
-    public CarRepository<Car> carRepository;
+    private Repository<Car> carRepository;
 
-    public CarServiceImpl(CarRepository<Car> carRepository){
-        this.carRepository=carRepository;
+
+    @Override
+    public List<Car> getAll() {
+        return this.carRepository.getAll();
     }
 
     @Override
-    public void add(Car car) {
-        this.carRepository.add(car);
+    public void add(Car t) {
+        this.carRepository.add(t);
     }
 
     @Override
-    public void delete(Car car) {
-        this.carRepository.delete(car);
+    public void delete(Car t) {
+        this.carRepository.delete(t);
+    }
+    public void update( Car car){
+        this.carRepository.update(car);
 
     }
 
-    @Override
-    public void update(Car t) {
-        this.carRepository.update(t);
-    }
 
-    @Override
+    /**
+     * Public method findCarsByMake searches cars by make.
+     *
+     * @param make holds value of car make
+     * @return list of found cars.
+     */
+
     public List<Car> findCarsByMake(String make) {
-        return null;
+        List<Car> foundCars = new ArrayList<>();
+
+        for (Car car : carRepository.getAll()) {
+            if (car.getMake().equalsIgnoreCase(make)) {
+                foundCars.add(car);
+            }
+        }
+
+        return foundCars;
     }
 
     @Override
-    public List<Car> findCarsByMakeAndModel(String make, String model) {
-        return null;
-    }
-
-    @Override
-    public List<Car> findCarsByMakeModelColorAndSeats(String make, String model, String color, int seats) {
-        return null;
+    public void setCarRepository(Repository<Car> carRepository) {
+        this.carRepository = carRepository;
     }
 }
